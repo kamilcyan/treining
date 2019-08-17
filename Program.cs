@@ -7,7 +7,7 @@ public class Program
 {
     public static void Main()
     {
-        getContent();
+        getContentToFile();
 
         async Task TestReader(System.IO.Stream stream)
         {
@@ -38,7 +38,7 @@ public class Program
         Console.ReadLine();
     }
 
-    private static void getContent()
+    private static void getContentToFile()
     {
 
         var url = "https://www.yr.no/place/Poland/Lublin/Pu%C5%82awy/forecast.xml";
