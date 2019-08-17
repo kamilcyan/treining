@@ -46,6 +46,6 @@ public class Program
         var httpClient = new HttpClient();
         var html = httpClient.GetStringAsync(url);
         
-        System.IO.File.WriteAllText(@"D:\ProjektyCsh\Trening\ConsoleApp11\ConsoleApp11\file.xml", html.Result);
+        System.IO.File.WriteAllText(@"D:\git\Treining\file.xml", html.Result);
     }
 }
