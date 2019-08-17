@@ -9,31 +9,27 @@ public class Program
     {
         getContentToFile();
 
-        async Task TestReader(System.IO.Stream stream)
+        using (XmlReader reader = XmlReader.Create(@"d:\git\Treining\file.xml"))
         {
-            XmlReaderSettings settings = new XmlReaderSettings();
-            settings.Async = true;
-
-            using (XmlReader reader = XmlReader.Create(@"D:\ProjektyCsh\Trening\ConsoleApp11\ConsoleApp11\file.xml", settings))
+            while (reader.Read())
             {
-                while (reader.Read())
+                if (reader.IsStartElement())
                 {
-                    if (reader.IsStartElement())
+                    //return only when you have START tag  
+                    switch (reader.Name.ToString())
                     {
-                        if (reader.IsEmptyElement)
-                            Console.WriteLine("<{0}/>", reader.Name);
-                        else
-                        {
-                            Console.Write("<{0}> ", reader.Name);
-                            reader.Read(); // Read the start tag.
-                            if (reader.IsStartElement())  // Handle nested elements.
-                                Console.Write("\r\n<{0}>", reader.Name);
-                            Console.WriteLine(reader.ReadString());  //Read the text content of the element.
-                        }
+                        case "Name":
+                            Console.WriteLine("Name of the Element is : " + reader.ReadString());
+                            break;
+                        case "Location":
+                            Console.WriteLine("Your Location is : " + reader.ReadString());
+                            break;
                     }
                 }
+                Console.WriteLine("");
             }
         }
+        Console.ReadKey();
 
         Console.ReadLine();
     }

@@ -22,21 +22,21 @@ link to the specified URL.-->
     <link id="longTermForecast" url="http://www.yr.no/place/Poland/Lublin/Puławy/long" />
   </links>
   <meta>
-    <lastupdate>2019-08-16T21:37:00</lastupdate>
+    <lastupdate>2019-08-16T21:36:00</lastupdate>
     <nextupdate>2019-08-17T10:00:00</nextupdate>
   </meta>
   <sun rise="2019-08-17T05:20:18" set="2019-08-17T19:50:54" />
   <forecast>
     <tabular>
-      <time from="2019-08-17T09:00:00" to="2019-08-17T12:00:00" period="1">
-        <!-- Valid from 2019-08-17T09:00:00 to 2019-08-17T12:00:00 -->
+      <time from="2019-08-17T08:00:00" to="2019-08-17T12:00:00" period="1">
+        <!-- Valid from 2019-08-17T08:00:00 to 2019-08-17T12:00:00 -->
         <symbol number="2" numberEx="2" name="Fair" var="02d" />
         <precipitation value="0" />
-        <!-- Valid at 2019-08-17T09:00:00 -->
-        <windDirection deg="250.7" code="WSW" name="West-southwest" />
-        <windSpeed mps="1.6" name="Light breeze" />
-        <temperature unit="celsius" value="20" />
-        <pressure unit="hPa" value="1016.9" />
+        <!-- Valid at 2019-08-17T08:00:00 -->
+        <windDirection deg="239.7" code="WSW" name="West-southwest" />
+        <windSpeed mps="1.3" name="Light air" />
+        <temperature unit="celsius" value="18" />
+        <pressure unit="hPa" value="1016.6" />
       </time>
       <time from="2019-08-17T12:00:00" to="2019-08-17T18:00:00" period="2">
         <!-- Valid from 2019-08-17T12:00:00 to 2019-08-17T18:00:00 -->
