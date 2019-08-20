@@ -145,13 +145,13 @@ public class Program
 
             }
 
-            if (timeOfDay[0] == "0")
+            if (timeOfDay[0] == "06")
                 partOfDay = "evening";
-            if (timeOfDay[0] == "6")
-                partOfDay = "night";
             if (timeOfDay[0] == "12")
-                partOfDay = "morning";
+                partOfDay = "night";
             if (timeOfDay[0] == "18")
+                partOfDay = "morning";
+            if (timeOfDay[0] == "00")
                 partOfDay = "afternoon";
 
             Console.WriteLine("temp first day : " + temperatures[0]);
