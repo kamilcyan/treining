@@ -28,16 +28,6 @@ link to the specified URL.-->
   <sun rise="2019-08-20T05:25:03" set="2019-08-20T19:44:47" />
   <forecast>
     <tabular>
-      <time from="2019-08-20T05:00:00" to="2019-08-20T06:00:00" period="0">
-        <!-- Valid from 2019-08-20T05:00:00 to 2019-08-20T06:00:00 -->
-        <symbol number="3" numberEx="3" name="Partly cloudy" var="03n" />
-        <precipitation value="0" />
-        <!-- Valid at 2019-08-20T05:00:00 -->
-        <windDirection deg="34.9" code="NE" name="Northeast" />
-        <windSpeed mps="1.2" name="Light air" />
-        <temperature unit="celsius" value="18" />
-        <pressure unit="hPa" value="1020.0" />
-      </time>
       <time from="2019-08-20T06:00:00" to="2019-08-20T12:00:00" period="1">
         <!-- Valid from 2019-08-20T06:00:00 to 2019-08-20T12:00:00 -->
         <symbol number="3" numberEx="3" name="Partly cloudy" var="03d" />

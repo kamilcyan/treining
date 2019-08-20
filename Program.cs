@@ -5,23 +5,33 @@ using System.Xml;
 
 public class Program
 {
+    enum TimeOfDay
+    {
+        morning,
+        afternoon,
+        evening,
+        night
+    }
+
+
     public static void Main()
     {
-        bool isSameDate;
         int liczba = 0;
         GetContentToFile();
-        //ReadFromXml(reader);
+        string partOfDay = "temporary";
 
-        string [] times = new string[40];
+        string[] times = new string[40];
         string[] symbols = new string[40];
         string[] windDir = new string[40];
         string[] temperatures = new string[40];
+        string[] timeOfDay = new string[40];
 
         int licznikTemp = 0;
         int licznikWindDir = 0;
         int licznikTime = 0;
         int licznikSymb = 0;
 
+        
         using (XmlReader reader = XmlReader.Create(@"D:\git\Treining\file.xml"))
         {
 
@@ -60,8 +70,7 @@ public class Program
                         attribute = reader["to"]/*.Substring(11,8)*/;
                         Console.WriteLine("time to : " + attribute);
 
-
-                        //reader.MoveToAttribute("symbol");
+                        
                         time = reader.Name.ToString();
                         Console.WriteLine(time);
                         attribute = reader["name"];
@@ -85,27 +94,23 @@ public class Program
                         reader.MoveToNextAttribute();
                         time = reader.Name.ToString();
                         Console.WriteLine(time);
-                        //setDate(date);
                     }
-
-                    //void setDate(string dat)
-                    //{
-                    //    string dateToday = "2019-08-19";
-                    //        /*DateTime.Now.Year + "-" + "0" + DateTime.Now.Month + "-" + DateTime.Now.Day;*/
-                    //    Console.WriteLine(dateToday + date);
-
-                    //    if (date == dateToday)
-                    //    {
-                    //        Console.WriteLine("time fromljnkjhoho : " );
-                    //Console.WriteLine(liczba);
 
                     if (reader.Name.ToString() == "time")
                     {
                         string attribute;
+                        string timeOfDays;
                         attribute = reader["from"];
                         attribute = reader["to"];
-                        times[licznikTime] = reader["from"].Substring(0, 10);
+                        timeOfDays = reader["to"].Substring(11,2);
+                        timeOfDay[licznikTime] = timeOfDays;
+                        times[licznikTime] = reader["from"];
                         licznikTime++;
+
+                        
+
+                        //Console.WriteLine("to jest to: " + timeOfDay[licznikTime]);
+                        //Console.WriteLine("part of day: " + partOfDay);
                     }
 
 
@@ -140,10 +145,20 @@ public class Program
 
             }
 
+            if (timeOfDay[0] == "0")
+                partOfDay = "evening";
+            if (timeOfDay[0] == "6")
+                partOfDay = "night";
+            if (timeOfDay[0] == "12")
+                partOfDay = "morning";
+            if (timeOfDay[0] == "18")
+                partOfDay = "afternoon";
+
             Console.WriteLine("temp first day : " + temperatures[0]);
             Console.WriteLine("cloudines first day : " + symbols[0]);
             Console.WriteLine("wind first day : " + windDir[0]);
             Console.WriteLine("time first day : " + times[0]);
+            Console.WriteLine("part of day first day : " + partOfDay);
 
             Console.WriteLine("temp second day : " + temperatures[1]);
             Console.WriteLine("cloudines second day : " + symbols[1]);
@@ -182,12 +197,10 @@ public class Program
             {
                 switch (reader.Name)
                 {
-                    // Read element for a property of this class
                     case "name":
                         name = reader.ReadElementContentAsString();
                         break;
-
-                    // Starting sub-list
+                        
                     case "sun rise":
                         sunRise = reader.ReadElementContentAsString();
                         break;
